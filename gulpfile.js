@@ -21,19 +21,22 @@ const path = {
     html: 'dist/',
     js: 'dist/assets/js/',
     css: 'dist/assets/css/',
-    images: 'dist/assets/img/'
+    images: 'dist/assets/img/',
+    fonts: 'dist/assets/fonts/'
   },
   src: {
     html: 'src/*.html',
     js: 'src/assets/js/*.js',
     css: 'src/assets/sass/main.sass',
-    images: 'src/assets/img/**/*.{jpg,png,svg,gif,ico}'
+    images: 'src/assets/img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
+    fonts: 'src/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}'
   },
   watch: {
     html: 'src/**/*.html',
     js: 'src/assets/js/**/*.js',
     css: 'src/assets/sass/**/*.sass',
-    images: 'src/assets/img/**/*.{jpg,png,svg,gif,ico}'
+    images: 'src/assets/img/**/*.{jpg,png,svg,gif,ico}',
+    fonts: 'src/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}'
   },
   clean: './dist'
 }
@@ -58,13 +61,13 @@ function html() {
     .pipe(plumber())
     .pipe(panini({
       root: 'src/',
-      layouts: 'src/templates/layouts/',
-      partials: 'src/templates/partials/',
-      helpers: 'src/templates/helpers/',
-      data: 'src/templates/data/'
+      layouts: 'src/layouts/',
+      partials: 'src/partials/',
+      helpers: 'src/helpers/',
+      data: 'src/data/'
     }))
     .pipe(dest(path.build.html))
-    .pipe(browsersync.stream());
+    .pipe(browsersync.reload({stream: true}));
 }
 
 function css() {
@@ -84,11 +87,11 @@ function css() {
     }))
     .pipe(stripCssComments())
     .pipe(rename({
-      suffix: "-min",
+      suffix: ".min",
       extname: ".css"
     }))
     .pipe(dest(path.build.css))
-    .pipe(browsersync.stream());
+    .pipe(browsersync.reload({stream: true}));
 }
 
 function js() {
@@ -98,7 +101,7 @@ function js() {
   .pipe(gulp.dest(path.build.js))
   .pipe(uglify())
   .pipe(rename({
-    suffix: "-min",
+    suffix: ".min",
     extname: ".js"
   }))
   .pipe(dest(path.build.js))
@@ -111,6 +114,12 @@ function images() {
     .pipe(dest(path.build.images));
 }
 
+function fonts() {
+  return src(path.src.fonts)
+  .pipe(dest(path.build.fonts))
+  .pipe(browsersync.reload({stream: true}));
+}
+
 function clean() {
   return del(path.clean)
 }
@@ -120,15 +129,17 @@ function watchFiles() {
   gulp.watch([path.watch.css], css)
   gulp.watch([path.watch.js], js)
   gulp.watch([path.watch.images], images)
+  gulp.watch([path.watch.fonts], fonts)
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images));
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
 const watch = gulp.parallel(build, watchFiles, browserSync)
 
 exports.html = html;
 exports.css = css;
 exports.js = js;
 exports.images = images;
+exports.fonts = fonts;
 exports.clean = clean;
 exports.build = build;
 exports.watch = watch;
