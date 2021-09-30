@@ -27,7 +27,7 @@ const path = {
   src: {
     html: 'src/*.html',
     js: 'src/assets/js/*.js',
-    css: 'src/assets/sass/main.sass',
+    css: 'src/assets/sass/style.sass',
     images: 'src/assets/img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
     fonts: 'src/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}'
   },

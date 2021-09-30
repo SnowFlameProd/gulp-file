@@ -1,6 +1,266 @@
 ---
 layout: default
-title: HomePage
+title: Auction
 ---
 
-<h1>Home page</h1>
+<div class="card">
+  <div class="container">
+    <div class="card__inner">
+
+      <div class="preview">
+        <div class="preview__header">
+          <h1 class="preview__title">Набор монет 1987 год</h1>
+          <ul class="preview__data">
+            <li class="preview__data-item">
+              <img src="assets/img/icons/date.svg" alt="icon">
+              <time datetime="2021-03-02 16:05">2 марта в 16:05</time>
+            </li>
+            <li class="preview__data-item">
+              <img src="assets/img/icons/mark.svg" alt="icon">
+              <a href="#">Санкт-Петербург, ст. м. Маяковская</a>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="slider">
+          <div class="slider-block">
+            <div class="slider__item">
+              <img src="assets/img/coins.jpg" alt="">
+            </div>
+          </div>
+          <!-- /.slider-block -->
+          <div class="slider-nav">
+            <div class="slider-nav__item active">
+              <img src="assets/img/coins.jpg" alt="">
+            </div>
+            <div class="slider-nav__item">
+              <img src="assets/img/coins-2.png" alt="">
+            </div>
+            <div class="slider-nav__item">
+              <img src="assets/img/coins-3.png" alt="">
+            </div>
+            <div class="slider-nav__item">
+              <img src="assets/img/coins-4.png" alt="">
+            </div>
+          </div>
+          <!-- /.slider-nav -->
+        </div>
+        <!-- /.slider -->
+      </div>
+      <!-- /.preview -->
+      
+      <div class="about">
+        <div class="about__header">
+          <div class="about__price">Купить сейчас за <span class="price">500 ₽</span></div>
+          <div class="about__price about__price--media"><span class="price">500 ₽</span> Цена лота “Купить сейчас” <br> <span class="info">Набор монет 1987 год</span></div>
+        </div>
+      
+        <div class="about__btns">
+          <button class="btn btn--red">Написать продавцу</button>
+          <button class="btn--like"></button>
+        </div>
+        <button class="btn btn--video">Запросить видеопродажу</button>
+      
+        <div class="timer">
+          <div class="timer__group">
+            <div class="timer__elem">
+              <div class="timer__text">Дней</div>
+              <div class="timer__item" id="days"></div>
+            </div>
+            <div class="timer__separator">:</div>
+            <div class="timer__elem">
+              <div class="timer__text">Часов</div>
+              <div class="timer__item" id="hours"></div>
+            </div>
+            <div class="timer__separator">:</div>
+            <div class="timer__elem">
+              <div class="timer__text">Минут</div>
+              <div class="timer__item" id="minutes"></div>
+            </div>
+            <div class="timer__separator">:</div>
+            <div class="timer__elem">
+              <div class="timer__text">Секунд</div>
+              <div class="timer__item" id="seconds"></div>
+            </div>
+          </div>
+    
+          <div class="timer__price">Начальная цена<br><span>100 ₽</span></div>
+          <div class="timer__bet">Текущая ставка<br><span>100 ₽</span></div>
+          <div class="timer__leader">Лидер: <span>Участник</span></div>
+    
+          <form class="form" action="/" method="POST">
+            <label class="form__label" for="inputBet">Ваша ставка</label>
+            <input class="form__control" type="text" id="inputBet">
+            <button class="btn btn--red" type="submit">Сделать ставку</button>
+          </form>
+    
+          <form class="form" action="/" method="POST">
+            <label class="form__label" for="inputAutobid">Автобид</label>
+            <input class="form__control" type="text" id="inputAutobid">
+            <button class="btn btn--autobid btn--form" type="submit">Поставить Автобид</button>
+          </form>
+        </div>
+      
+        <div class="user">
+          <div class="user__content">
+      
+            <div class="user__status">
+              <img src="assets/img/user-avatar.svg" alt="avatar" class="user__avatar">
+              <ul class="user__stats">
+                <li class="user__stats-item">
+                  <img src="assets/img/icons/rating.svg" alt="rating" class="user__stats-icon">
+                  5,0
+                </li>
+                <li class="user__stats-item">
+                  <img src="assets/img/icons/comments.svg" alt="rating" class="user__stats-icon">
+                  6
+                </li>
+                <li class="user__stats-item">
+                  <img src="assets/img/icons/receive.svg" alt="rating" class="user__stats-icon">
+                  23
+                </li>
+                <li class="user__stats-item">
+                  <img src="assets/img/icons/follow.svg" alt="rating" class="user__stats-icon">
+                  31
+                </li>
+              </ul>
+            </div>
+            <!-- /.user__status -->
+      
+            <div class="user__about">
+              <div class="user__name">Екатерина</div>
+              <ul class="user__info">
+      
+                <li class="user__info-item">
+                  <img src="assets/img/user/mark.svg" alt="icon">
+                  Санкт-Петербург
+                </li>
+      
+                <li class="user__info-item">
+                  <img src="assets/img/user/status.svg" alt="icon">
+                  Частное лицо
+                </li>
+      
+                <li class="user__info-item">
+                  <img src="assets/img/user/date.svg" alt="icon">
+                  На AT-WORK с февраля 
+                </li>
+      
+                <li class="user__info-item">
+                  <img src="assets/img/user/online.svg" alt="icon">
+                  Онлайн 1 день назад
+                </li>
+      
+              </ul>
+            </div>
+      
+          </div>
+          <!-- /.user__content -->
+          <div class="user__footer">
+            <div class="user__footer-item">
+              <button class="btn--user btn--user--follow">
+              </button>
+              Подписаться
+            </div>
+            <div class="user__footer-item">
+              <button class="btn--user btn--user--fav">
+              </button>
+              В избранное
+            </div>
+            <div class="user__footer-item">
+              <button class="btn--user btn--user--connect">
+              </button>
+              Связаться
+            </div>
+          </div>
+          <!-- /.user__footer -->
+        </div>
+        <!-- /.user -->
+      
+        <div class="stats">
+          <div class="stats__items">
+            <div class="stats__item">
+              <div class="stats__icon">
+                <img src="assets/img/stats/number.svg" alt="icon">
+              </div>
+              <div class="stats__text">548</div>
+            </div>
+            
+            <div class="stats__item">
+              <div class="stats__icon">
+                <img src="assets/img/stats/views.svg" alt="icon">
+              </div>
+              <div class="stats__text">211 (+ 2)</div>
+            </div>
+        
+            <div class="stats__item">
+              <div class="stats__icon">
+                <img src="assets/img/stats/likes.svg" alt="icon">
+              </div>
+              <div class="stats__text">4 (+ 3)</div>
+            </div>
+          </div>
+          <!-- /.stats__items -->
+      
+          <ul class="stats__data">
+            <li class="stats__data-item stats__data-item--bet">
+              <img src="assets/img/stats/auction.svg" alt="" class="stats__data-icon">
+              4 ставки
+            </li>
+            <li class="stats__data-item stats__data-item--open">
+              Открыто
+            </li>
+          </ul>
+        </div>
+        <!-- /.stats -->
+      
+        <div class="social">
+          <h4 class="social__title">Поделиться:</h4>
+          <ul class="social__items">
+            <li class="social__item">
+              <a href="#" class="social__link" target="_blank">
+                <img src="assets/img/social/vk.svg" alt="Vk">
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" target="_blank">
+                <img src="assets/img/social/ok.svg" alt="Ok">
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" target="_blank">
+                <img src="assets/img/social/mail.svg" alt="">
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" target="_blank">
+                <img src="assets/img/social/twitter.svg" alt="">
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" target="_blank">
+                <img src="assets/img/social/link.svg" alt="">
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" target="_blank">
+                <img src="assets/img/social/fb.svg" alt="">
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" target="_blank">
+                <img src="assets/img/social/tg.svg" alt="">
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.social -->
+        <button class="btn btn--complaint"><span>Пожаловаться</span></button>
+      </div>
+      <!-- /.about -->
+    </div>
+    <!-- /.card__inner -->
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.card -->
